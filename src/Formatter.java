@@ -23,7 +23,7 @@ public class Formatter {
 		for(int i = 0;i<counter;i++) {
 			String testerDa = nameParameter.substring(findingSpace(nameParameter) + 1,findingSpace(nameParameter) + 4);
 			String testerE = nameParameter.substring(findingSpace(nameParameter) + 1,findingSpace(nameParameter) + 3);
-			if( testerDa(testerDa) || testerE(testerE) == true ){
+			if( testerConjunction(testerDa) || testerConjunction(testerE) == true ){
 				
 			}
 			//Caso não seja (de/da/do/e) depois do espaço esse código é executado
@@ -36,30 +36,18 @@ public class Formatter {
 		}
 		return nameParameter;
 	}//Final formater
-	//Método para testar se o conectivo entre os sobrenomes é "e"
-	private static boolean testerE(String e) {
-		boolean eResult;
-		if (e.equals("e "))
+	//Método para testar se o conectivo entre os sobrenomes é "e", "de","do" ou "da"
+	private static boolean testerConjunction(String conjunctionParameter) {
+		boolean conjunctionResult;
+		String tester = "e do da de ";
+		if (tester.contains(conjunctionParameter))
 				{
-				eResult = true;
+			conjunctionResult = true;
 			}else{
-				eResult = false;
+				conjunctionResult = false;
 			}
-			return eResult;
-	}//final testerE
-	//Método para testar se o conectivo entre os sobrenomes é "da", "de" ou "do"
-	private static boolean testerDa(String da) {
-		boolean daResult;
-		if (da.equals("da ") ||
-			da.equals("de ") ||
-			da.equals("do "))
-			{
-			daResult = true;
-		}else{
-			daResult = false;
-		}
-		return daResult;
-	}//final testerDa
+			return conjunctionResult;
+	}//final testerConjunction
 	//Método para encontrar a posição do espaço no nome
 	private static int findingSpace(String nameParameter) {
 		int spaceLocation;
@@ -72,5 +60,4 @@ public class Formatter {
 		Scanner scan = new Scanner(System.in);		
 		return scan;
 	}//final input
-	
 }
