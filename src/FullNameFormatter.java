@@ -13,7 +13,7 @@ public class FullNameFormatter {
 	//Metodo para formatar a primeira letra do/dos sobrenome/s deixando (e/da/de/do) em LowerCase
 	private static String formatter(String nameParameter) {
 		int counter = 0;
-		//Verificando a quantidade de espaços no nome
+		//Verificando a quantidade de espaÃ§os no nome
 		for( int i=0; i<nameParameter.length(); i++ ) {
 		    if( nameParameter.charAt(i) == ' ' ) {
 		        counter++;
@@ -26,7 +26,7 @@ public class FullNameFormatter {
 			if( testerConjunction(testerDa) || testerConjunction(testerE) == true ){
 				
 			}
-			//Caso não seja (de/da/do/e) depois do espaço esse código é executado
+			//Caso nÃ£o seja (de/da/do/e) depois do espaÃ§o esse cÃ³digo Ã© executado
 			else{
 				nameParameter = nameParameter.substring(0, findingSpace(nameParameter) + 1) + nameParameter.substring(findingSpace(nameParameter)+1,findingSpace(nameParameter)+2).toUpperCase() + nameParameter.substring(findingSpace(nameParameter)+2);
 			}
@@ -36,7 +36,7 @@ public class FullNameFormatter {
 		}
 		return nameParameter;
 	}//Final formater
-	//Método para testar se o conectivo entre os sobrenomes é "e", "de","do" ou "da"
+	//MÃ©todo para testar se o conectivo entre os sobrenomes Ã© "e", "de","do" ou "da"
 	private static boolean testerConjunction(String conjunctionParameter) {
 		boolean conjunctionResult;
 		String tester = "e do da de ";
@@ -48,16 +48,7 @@ public class FullNameFormatter {
 			}
 			return conjunctionResult;
 	}//final testerConjunction
-	//Método para encontrar a posição do espaço no nome
-	private static int findingSpace(String nameParameter) {
-		int spaceLocation;
-		spaceLocation = nameParameter.indexOf(" ");
-		return spaceLocation;
-	}//final findingSpace
-	//Método de Scanner
-	private static Scanner input() {
-		System.out.println("Digite seu nome completo");
-		Scanner scan = new Scanner(System.in);		
-		return scan;
+	//MÃ©todo para encontrar a posiÃ§Ã£o do espaÃ§o no nome
+	
 	}//final input
 }
